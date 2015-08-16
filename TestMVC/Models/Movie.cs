@@ -7,6 +7,9 @@ namespace TestMVC.Models
     public class Movie
     {
         public int ID { get; set; }
+
+        [Display(Name = "Movie Title")]
+        [StringLength(60, MinimumLength = 3)]
         public string Title { get; set; }
 
         [Display(Name = "Release Date")]
@@ -14,8 +17,18 @@ namespace TestMVC.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
 
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [Required]
+        [StringLength(30)]
         public string Genre { get; set; }
+
+        //[Range(1, 10000)]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:n0}")]
         public decimal Price { get; set; }
+
+        //[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [StringLength(5)]
         public string Rating { get; set; }
     }
 
